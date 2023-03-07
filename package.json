@@ -1,0 +1,21 @@
+{
+  "name": "e2e",
+  "version": "1.0.0",
+  "description": "Technical test for an interview sent by Rita Pastor from Talent-R",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inesMehdi/playwright-js-Talent-R.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inesMehdi/playwright-js-Talent-R/issues"
+  },
+  "homepage": "https://github.com/inesMehdi/playwright-js-Talent-R#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.31.2"
+  }
+}
