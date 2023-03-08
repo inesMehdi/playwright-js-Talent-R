@@ -1,15 +1,16 @@
-// @ts-check
+const config = require('../playwright.config');
 const {test, expect} = require('@playwright/test');
+require('dotenv').config();
 
 test('Login test', async ({page}) => {
-    await page.goto('https://www.welcometothejungle.com/fr/me/settings/account');
+    await page.goto(config.use.baseURL);
     await expect(page.getByTestId('session-tab-login')).toBeVisible();
-    await page.getByTestId('login-field-email').fill("inqom.qaautomationapplicant@gmail.com");
-    await page.getByTestId('login-field-password').fill("o5N,d5ZR@R7^");
+    await page.getByTestId('login-field-email').fill(process.env.LOGIN_USERNAME);
+    await page.getByTestId('login-field-password').fill(process.env.LOGIN_PASSWORD);
     const loginButton = page.locator('button[data-testid="login-button-submit"]');
     await expect(loginButton).toBeEnabled();
     await loginButton.click();
-    await page.waitForURL('https://www.welcometothejungle.com/fr/me/settings/account');
+    await page.waitForURL(config.use.baseURL);
     await expect(page.getByText('Mes informations')).toBeVisible();
     await page.locator('button[id="axeptio_btn_acceptAll"]').click();
 
